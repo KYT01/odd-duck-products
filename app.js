@@ -9,7 +9,7 @@ const image2 = document.querySelector("section img:nth-child(2)");
 const image3 = document.querySelector("section img:nth-child(3)");
 
 let clicks = 0;
-const maxClickAllowed = 6;
+const maxClickAllowed = 25;
 
 let allProducts = [];
 
