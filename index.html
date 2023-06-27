@@ -5,13 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="reset.css"/>
     <link rel="stylesheet" href="style.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/Chart.min.js"></script>
+
 </head>
 <body>
     <header>
         <h1>Odd Duck Products</h1>
     </header>
+<div class="gif">
+    <img class="duck" src="https://media.tenor.com/b2Q8nyvkW2kAAAAC/duck-pixel.gif" alt="GIF">
+    <h2> YO!    PICK YOUR FAVORITE PRODUCT</h2>
+</div>
     <main>
         <section>
             <img />
@@ -20,9 +29,12 @@
         </section>   
     <div>
         <div class="button">View Results</div>
-        <ul></ul>
+        <!-- <ul></ul> -->
     </div>
-</main>
+   </main>
+   <div>
+    <canvas id="chart"></canvas>
+</div>
     <script src="app.js"></script>
     <footer></footer>
 </body>

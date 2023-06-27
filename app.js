@@ -3,7 +3,7 @@ console.log("test");
 
 
 const productContainer = document.querySelector("section");
-const resultsButton = document.querySelector("section + div");
+const resultsButton = document.querySelector("div.button");
 const image1 = document.querySelector("section img:first-child");
 const image2 = document.querySelector("section img:nth-child(2)");
 const image3 = document.querySelector("section img:nth-child(3)");
@@ -14,6 +14,7 @@ const maxClickAllowed = 25;
 let allProducts = [];
 
 let product1, product2, product3;
+
 
 function getRandomNumber() {
     return Math.floor(Math.random() * allProducts.length);
@@ -27,12 +28,14 @@ function Product(name, src) {
     allProducts.push(this);
 }
 
+let recentProducts = [];
+
 function renderProducts() {
     product1 = getRandomNumber();
     product2 = getRandomNumber();
     product3 = getRandomNumber();
 
-    while (product1 === product2 || product1 === product3 || product2 === product3) {
+    while (product1 === product2 || product1 === product3 || product2 === product3 || recentProducts.includes(product1) || recentProducts.includes(product2) || recentProducts.includes(product3)) {
         product1 = getRandomNumber();
         product2 = getRandomNumber();
         product3 = getRandomNumber();
@@ -50,6 +53,10 @@ function renderProducts() {
 }
 
 
+recentProducts = [];
+recentProducts.push(product1, product2)
+
+
 function productClick(event) {
     let clickedProduct = event.target.alt;
     for (let i = 0; i < allProducts.length; i++) {
@@ -62,8 +69,8 @@ function productClick(event) {
   if (clicks === maxClickAllowed) {
     productContainer.removeEventListener("click", productClick);
     productContainer.className = "no-voting";
-    resultsButton.addEventListener("click", renderResults);
-    resultsButton.className = "clicks-allowed";
+    resultsButton.addEventListener("click", renderChart);
+    resultsButton.classList.add("clicks-allowed");
   } else {
     renderProducts();
    }
@@ -101,3 +108,48 @@ const wine = new Product("wine-glass", "images/wine-glass.jpg");
 renderProducts();
 
 productContainer.addEventListener("click", productClick);
+
+
+function renderChart() {
+    const productName = [];
+    const productClicks = [];
+    const productViews = [];
+
+    for (let i = 0; i < allProducts.length; i++) {
+        productName.push(allProducts[i].name);
+        productClicks.push(allProducts[i].clicks);
+        productViews.push(allProducts[i].views);
+    }
+
+
+
+    const data = {
+        labels: productName,
+        datasets: [
+          {
+            label: "CLICKS",
+            data: productClicks,
+            backgroundColor: ("rgb(0, 115, 255)"),
+      borderWidth: 1,
+          },
+          {
+            label: "VIEWS",
+            data: productViews,
+            backgroundColor: ("rgb(53, 194, 255)"),
+            borderWidth: 1,
+          },
+        ],
+      };
+    
+      const config = {
+        type: "bar",
+        data: data,
+      };
+    
+      const productChart = document.getElementById("chart");
+      const myChart = new Chart(productChart, config);
+
+    }
+    
+
+

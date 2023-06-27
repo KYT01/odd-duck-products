@@ -3,8 +3,8 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(169, 169, 53);
+    font-family: 'Bungee', cursive;
+    background-color: rgb(255, 251, 183);
 }
 
 header {
@@ -17,7 +17,7 @@ h1 {
 
     font-size: 4rem;
     padding-top: 15px;
-    color: rgb(233, 255, 186);
+    color: rgb(255, 213, 1);
 }
 
 main {
@@ -29,7 +29,6 @@ main {
 }
 
 section {
-    background-color: rgb(93, 124, 38);
     width: 100%;
     grid-row-start: 1;
     grid-row-end: 4;
@@ -37,18 +36,20 @@ section {
     grid-column-end: 4;
     margin: 1rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
 section img {
-    width: 300px;
+    height: 300px;
     border: 10px solid transparent;
+
+
 }
 
 
 section img:hover {
-    border: 10px solid rgb(255, 226, 109);
+    border: 10px solid rgb(255, 183, 0);
     cursor: pointer;
 }
 
@@ -64,7 +65,10 @@ div {
     padding: 10px;
     border-radius: 50px;
     border: 5px solid transparent;
+    font-size: 15px;
+    color: aliceblue;
 }
+
 
 li {
     text-align: center;
@@ -74,4 +78,21 @@ li {
 .button:hover {
     border: 5px solid rgb(255, 203, 203);
     cursor: pointer;
+}
+
+.gif {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 70px;
+    display: flex;
+}
+
+.duck {
+    width: 200px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-left: 60px;
+    margin-top: 70px;
 }
