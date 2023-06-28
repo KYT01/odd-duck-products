@@ -50,11 +50,14 @@ function renderProducts() {
     allProducts[product1].views++;
     allProducts[product2].views++;
     allProducts[product3].views++;
+
+    recentProducts = [product1, product2, product3];
+
 }
 
-
 recentProducts = [];
-recentProducts.push(product1, product2)
+recentProducts.push(product1, product2, product3);
+
 
 
 function productClick(event) {
